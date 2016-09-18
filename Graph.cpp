@@ -15,5 +15,26 @@ public class Node{
 		if( s==t){
 			return true;
 		}
+
+		MyQueue q = new MyQueue();
+		s._marked = true;
+		q.add(s);
+
+		while(!q.isEmpty()){
+			Node curr = q.remove();
+			for each (Node n in curr._children){
+				if(n._marked == false){
+					if (n == t)
+					{
+						return true;
+					}
+
+					n._marked = true;
+					q.add(n);
+				}
+			}
+		}
+
+		return false;
 	}
 }
