@@ -12,6 +12,8 @@ public class Node{
 	}
 
 	public bool routeBetweenNodes(Graph g, Node s, Node t){
-		
+		if( s==t){
+			return true;
+		}
 	}
 }
