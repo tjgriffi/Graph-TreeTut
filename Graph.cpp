@@ -68,4 +68,20 @@ public class Node{
 			}
 		}
 	}
+
+	public Node createMinBST(int[] arr){
+		return createMinBST(arr, 0, arr.length);
+	}
+
+	public Node createMinBST(int[] arr, int start, int end){
+		if(end < start){
+			return null;
+		}
+
+		int mid = (start + end)/2;
+		Node n = new Node(arr[mid]);
+		n._left = createMinBST(arr, start, mid-1);
+		n._right = createMinBST(arr, mid+1, end);
+		return n;
+	}
 }
